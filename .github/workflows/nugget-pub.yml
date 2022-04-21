@@ -23,7 +23,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Build
-        run: dotnet build --configuration Release /p:Version=1.0.0.${env.GITHUB_RUN_ID}
+        run: dotnet build --configuration Release /p:Version=1.0.${env.GITHUB_RUN_ID}
       - name: Test
         run: dotnet test --configuration Release --no-build
       - name: Pack
