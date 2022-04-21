@@ -25,9 +25,9 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release /p:Version=1.0.${{ github.run_number }}
       - name: Test
-        run: dotnet test --configuration Release --no-build
+        run: dotnet test --configuration Release /p:Version=1.0.${{ github.run_number }} --no-build
       - name: Pack
-        run: dotnet pack --configuration Release --no-build --output .
+        run: dotnet pack --configuration Release /p:Version=1.0.${{ github.run_number }} --no-build --output .
       - name: Push
         run: dotnet nuget push CalculatorIliya.*.*.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGGET_TOKEN}
         env:
